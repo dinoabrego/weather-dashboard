@@ -1,0 +1,38 @@
+.search-card {
+    margin-top: 5%;
+    padding-left: 5%;
+}
+
+.cityInfo {
+    border: 1px solid #000;
+    margin-bottom: 3%;
+
+}
+
+.info-data {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.uvLow {
+    background-color: green;
+}
+
+.uvMedium {
+    background-color: yellow;
+}
+
+.uvHigh {
+    background-color: red;
+}
+
+.forecast {
+    margin: 2%;
+}
+
+.dayForecast {
+    background-color: blue;
+    color: white;
+    width: 20%;
+    margin: 1%;
+}

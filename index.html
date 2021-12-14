@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary justify-content-between">
+        <h1 class="navbar-brand mx-auto text-center text-light">Weather Dashboard</h1>
+    </nav>
+    <div class="row">
+        <nav class="col-3 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <div class="search-card">
+                 <form>
+                    <div class="form-group">
+                        <label for="exampleInputCity">Search for a city:</label>
+                        <input type="city" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="San Diego">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+                </form>
+           </div>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Search History</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link">
+                  Austin
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  Chicago
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  New York
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  Orlando
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-9 ml-sm-auto pt-3 px-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <div class="cityInfo">
+                <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+                    <h2 class="h2" id="cityName">City Name <span id="todaysDate">(3/30/2021)</span></h2>
+                </div>
+                <div class="row info-data">
+                    <a> Temp:  </a>
+                    <span id="temperature">90°</span>
+                    <a> F</a>
+                </div>
+                <div class="row info-data"> 
+                    <a> Wind:  </a>
+                    <span id="wind">6.67</span>
+                    <a> MPH.</a>
+                </div>
+                <div class="row info-data"> 
+                    <a> Humidity:  </a>
+                    <span id="humidity">46</span>
+                    <a> %</a>
+                </div>
+                <div class="row info-data">
+                    <a> UV Index:  </a>
+                    <span id="uvIndex">0.47</span>
+                </div>
+            </div>
+            <div class="forecast">
+                <h2 class="row h2">5 day forecast</h2>
+                <div class="row">
+                    <div class="col dayForecast">
+                        <h3> Day <span class = "dateForecast"></span></h3>
+                        <p>Temp: <span class = "tempForecast"></span></p>
+                        <p>Wind: <span class = "windForecast"><span</p>
+                        <p>Humidity: <span class = "humidityForecast"><span</p>
+                    </div>
+                    <div class="col dayForecast">
+                        <h3> Day <span class = "dateForecast"></span></h3>
+                        <p>Temp: <span class = "tempForecast"></span></p>
+                        <p>Wind: <span class = "windForecast"><span</p>
+                        <p>Humidity: <span class = "humidityForecast"><span</p>
+                    </div>
+                    <div class="col dayForecast">
+                        <h3> Day <span class = "dateForecast"></span></h3>
+                        <p>Temp: <span class = "tempForecast"></span></p>
+                        <p>Wind: <span class = "windForecast"><span</p>
+                        <p>Humidity: <span class = "humidityForecast"><span</p>
+                    </div>
+                    <div class="col dayForecast">
+                        <h3> Day <span class = "dateForecast"></span></h3>
+                        <p>Temp: <span class = "tempForecast"></span></p>
+                        <p>Wind: <span class = "windForecast"><span</p>
+                        <p>Humidity: <span class = "humidityForecast"><span</p>
+                    </div>
+                    <div class="col dayForecast">
+                        <h3> Day <span class = "dateForecast"></span></h3>
+                        <p>Temp: <span class = "tempForecast"></span></p>
+                        <p>Wind: <span class = "windForecast"><span</p>
+                        <p>Humidity: <span class = "humidityForecast"><span</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
