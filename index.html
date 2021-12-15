@@ -20,7 +20,7 @@
                  <form>
                     <div class="form-group">
                         <label for="exampleInputCity">Search for a city:</label>
-                        <input type="city" class="form-control" id="cityInput" aria-describedby="cityHelp" placeholder="San Diego">
+                        <input class="form-control" id="cityInput" placeholder="San Diego">
                     </div>
                     <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
                 </form>
@@ -57,26 +57,28 @@
         <main role="main" class="col-9 ml-sm-auto pt-3 px-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
             <div class="cityInfo">
                 <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
-                    <h2 class="h2" id="cityName">City Name <span id="todaysDate">(3/30/2021)</span></h2>
+                    <h2 class="h2" id="cityName"></h2>
+                    <span id="todaysDate"></span>
+                    <div id="icon"><img id="weatherIcon" src="" alt="Weather icon" widht="50" height="50"></div>
                 </div>
                 <div class="row info-data">
                     <a> Temp:  </a>
-                    <span id="temperature">90°</span>
-                    <a> F</a>
+                    <span id="temperature"></span>
+                    <a> °F</a>
                 </div>
                 <div class="row info-data"> 
                     <a> Wind:  </a>
-                    <span id="wind">6.67</span>
+                    <span id="wind"></span>
                     <a> MPH.</a>
                 </div>
                 <div class="row info-data"> 
                     <a> Humidity:  </a>
-                    <span id="humidity">46</span>
+                    <span id="humidity"></span>
                     <a> %</a>
                 </div>
                 <div class="row info-data">
                     <a> UV Index:  </a>
-                    <span id="uvIndex">0.47</span>
+                    <span id="uvIndex"></span>
                 </div>
             </div>
             <div class="forecast">
@@ -115,10 +117,12 @@
                 </div>
             </div>
         </main>
-      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script defer type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>

@@ -18,12 +18,20 @@
     background-color: green;
 }
 
-.uvMedium {
+.uvModerate {
     background-color: yellow;
 }
 
 .uvHigh {
+    background-color: orange;
+}
+
+.uvVeryHigh {
     background-color: red;
+}
+
+.uvExtreme {
+    background-color: purple;
 }
 
 .forecast {
