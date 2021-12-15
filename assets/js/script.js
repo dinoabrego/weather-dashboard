@@ -226,15 +226,41 @@ function showCityForecast5(data) {
     forecastIcon5.setAttribute('src',forecastIconUrl5);
 }
 
-//Store searched cities in local storage
+//Store searched cities in local storage and create an element for them
+
+var searchHistory = document.getElementById("searchHist");
 
 function searchedCities(cityNameHeader) {
+    if (JSON.parse(localStorage.getItem("history")) == null) {
 
+        var citiesArray = [];
+        citiesArray.push(cityNameHeader);
+        var cityBtn = document.createElement("button");
+        cityBtn.setAttribute("class", "cityBtn");
+        cityBtn.textContent = cityNameHeader;
+        searchHistory.prepend(cityBtn);
+        localStorage.setItem("history", JSON.stringify(citiesArray));
+
+    } else {
+        var citiesArray = JSON.parse(localStorage.getItem("history"));
+        citiesArray.push(cityNameHeader);
+        var cityBtn = document.createElement("button");
+        cityBtn.setAttribute("class", "cityBtn");
+        cityBtn.textContent = cityNameHeader;
+        searchHistory.prepend(cityBtn);
+        localStorage.setItem("hisory", JSON.stringify(citiesArray));
+        
+    }
 }
 
 //Search for the stored cities again
 
-function clickSearchedCities(event) {
+searchHistory.addEventListener('click', searchedCitiesWeather);
 
+function searchedCitiesWeather(event) {
+    if (event.target.matches(".cityBtn")) {
+        console.log("Search city again:", event.target.textContent);
+        inputCity.value = event.target.textContent;
+        getCityWeather(); 
+    }
 }
-
