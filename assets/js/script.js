@@ -50,7 +50,7 @@ function showCityWeather(data) {
 
     //add weather icon
     var iconData = data.weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/w/" + iconData + ".png";
+    var iconUrl = "https://openweathermap.org/img/w/" + iconData + ".png";
     cityWeatherIcon.setAttribute('src',iconUrl);
 
     var longitude = data.coord.lon;
@@ -115,12 +115,45 @@ function showCityUV(data) {
 // Get the 5 day forecast 
 
 function getCityForecast(longitude, latitude) {
+    var apiKey = "01554937b65242f27b9efd3966f96164";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&exclude=current,minutely,hourly,alerts&appid=" + apiKey;
 
+    fetch(apiUrl)
+    .then(function (response) {
+        if (response.ok) {
+            console.log(response);
+            response.json().then(function (data) {
+                console.log(data);
+                showCityForecast(data);
+            });
+        } else {
+            alert("Error " + response.statusText);
+        }
+    })
+    .catch(function (error) {
+        alert("We were unable to connect to the OpenWeather API");
+    });
 }
 
 //Show the forecast
+
+var forecastDate = document.querySelectorAll(".dateForecast");
+var forecastIcon = document.querySelectorAll(".weatherIcon");
+var forecastTemperature = document.querySelectorAll(".tempForecast");
+var forecastWind = document.querySelectorAll(".windForecast");
+var forecastHumidity = document.querySelectorAll(".humidityForecast")
+
 function showCityForecast(data) {
 
+    for (var i = 0; i < 5; i++) {
+    forecastDate[i].textContent = moment().add(i+1, "days").format("M/D/YYYY");
+    forecastTemperature[i].textContent = data.daily[i].temp.max;
+    forecastWind[i].textContent = data.daily[i].wind_speed;
+    forecastHumidity[i].textContent = data.daily[i].humidity;
+    var forecastIconData = data.daily[i].weather[0].icon;
+    var forecastIconUrl = "https://openweathermap.org/img/w/" + forecastIconData + ".png";
+    forecastIcon.setAttribute('src',forecastIconUrl);
+    }
 }
 
 //Store searched cities in local storage
@@ -131,6 +164,8 @@ function searchedCities(cityNameHeader) {
 
 //Search for the stored cities again
 
-
+function clickSearchedCities(event) {
+    
+}
 
 //
